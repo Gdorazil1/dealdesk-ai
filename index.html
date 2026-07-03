@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DealDesk AI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Commercial real estate assistant</p>
+            <h1>DealDesk AI</h1>
+          </div>
+          <div class="status-pill">
+            <span></span>
+            Live demo
+          </div>
+        </header>
+
+        <div class="assistant-grid">
+          <section class="chat-panel" aria-label="AI assistant">
+            <div class="chat-header">
+              <div>
+                <h2>Ask a deal question</h2>
+                <p>NNN leases, cap rates, LOIs, diligence, financing, tenant strategy.</p>
+              </div>
+              <button class="ghost-button" id="resetChat" type="button">Reset</button>
+            </div>
+
+            <div class="quick-prompts" aria-label="Suggested prompts">
+              <button type="button" data-prompt="What should I review in a triple-net lease before buying a single-tenant retail property?">NNN lease review</button>
+              <button type="button" data-prompt="How do cap rates change when credit quality, term, and rent escalations differ?">Cap rate read</button>
+              <button type="button" data-prompt="Draft an LOI checklist for a quick-service restaurant ground lease.">LOI checklist</button>
+              <button type="button" data-prompt="What due diligence should I run before waiving contingencies?">Diligence</button>
+            </div>
+
+            <div class="messages" id="messages" aria-live="polite"></div>
+
+            <form class="composer" id="composer">
+              <label class="sr-only" for="question">Question</label>
+              <textarea id="question" rows="3" placeholder="Ask about a lease, tenant, site, financing stack, LOI, or development risk..."></textarea>
+              <button type="submit">Ask</button>
+            </form>
+          </section>
+
+          <aside class="deal-panel" aria-label="Deal intelligence">
+            <img src="assets/dealdesk-visual.png" alt="Commercial real estate lease and site analysis workspace" />
+            <div class="insight-row">
+              <div>
+                <span>Knowledge scope</span>
+                <strong>8 CRE playbooks</strong>
+              </div>
+              <div>
+                <span>Buyer motion</span>
+                <strong>SaaS + licenses</strong>
+              </div>
+            </div>
+            <div class="metric-grid">
+              <div>
+                <span>Solo</span>
+                <strong>$49</strong>
+                <small>/mo</small>
+              </div>
+              <div>
+                <span>Pro</span>
+                <strong>$99</strong>
+                <small>/mo</small>
+              </div>
+              <div>
+                <span>Deal Team</span>
+                <strong>$199</strong>
+                <small>/mo</small>
+              </div>
+            </div>
+            <div class="deal-note">
+              <h3>Built for repeat deal flow</h3>
+              <p>Brokerage teams can standardize answers, diligence checklists, tenant talking points, and LOI review across junior and senior producers.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="knowledge-band">
+        <div class="section-heading">
+          <p class="eyebrow">Answer domains</p>
+          <h2>Commercial real estate playbooks</h2>
+        </div>
+        <div class="domain-grid" id="domainGrid"></div>
+      </section>
+
+      <section class="pricing-band">
+        <div class="section-heading">
+          <p class="eyebrow">Sell as software</p>
+          <h2>Subscriptions and licenses</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <span>Solo Broker</span>
+            <h3>$49/mo</h3>
+            <p>Fast answers, checklist generation, LOI prep, and deal memo framing for individual operators.</p>
+            <button type="button" data-plan="Solo Broker">Start solo</button>
+          </article>
+          <article class="price-card featured">
+            <span>Pro Advisor</span>
+            <h3>$99/mo</h3>
+            <p>Expanded playbooks, saved Q&A, underwriting prompts, tenant negotiation scripts, and diligence workflows.</p>
+            <button type="button" data-plan="Pro Advisor">Choose pro</button>
+          </article>
+          <article class="price-card">
+            <span>Brokerage Team</span>
+            <h3>$199/mo</h3>
+            <p>Shared team standards, onboarding workflows, role-based access, and manager review queues.</p>
+            <button type="button" data-plan="Brokerage Team">License team</button>
+          </article>
+          <article class="price-card enterprise">
+            <span>Enterprise</span>
+            <h3>Custom</h3>
+            <p>Private knowledge base, compliance controls, SSO, custom tenant templates, and CRM integration.</p>
+            <button type="button" data-plan="Enterprise">Book enterprise</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="lead-band" aria-label="Lead form">
+        <div>
+          <p class="eyebrow">Launch pipeline</p>
+          <h2>Capture broker, owner, and team demand</h2>
+        </div>
+        <form class="lead-form" id="leadForm">
+          <label>
+            Name
+            <input name="name" autocomplete="name" required />
+          </label>
+          <label>
+            Work email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            Plan
+            <select name="plan">
+              <option>Pro Advisor</option>
+              <option>Solo Broker</option>
+              <option>Brokerage Team</option>
+              <option>Enterprise</option>
+            </select>
+          </label>
+          <button type="submit">Request access</button>
+        </form>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
