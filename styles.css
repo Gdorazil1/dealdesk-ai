@@ -1,0 +1,509 @@
+:root {
+  color-scheme: light;
+  --ink: #17211d;
+  --muted: #66716b;
+  --paper: #f8f7f1;
+  --panel: #ffffff;
+  --line: #dfe4dc;
+  --green: #256b50;
+  --green-dark: #164734;
+  --amber: #c9852b;
+  --blue: #2f6389;
+  --rose: #a34f4c;
+  --shadow: 0 20px 60px rgba(23, 33, 29, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.workspace {
+  padding: 28px clamp(18px, 4vw, 54px) 34px;
+}
+
+.topbar,
+.chat-header,
+.insight-row,
+.lead-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--green);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 5vw, 4.75rem);
+  line-height: 0.95;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.35rem, 2.6vw, 2.35rem);
+  line-height: 1.05;
+}
+
+h3 {
+  margin-bottom: 8px;
+}
+
+.status-pill {
+  align-items: center;
+  background: #e9f2ed;
+  border: 1px solid #c9ddd2;
+  border-radius: 999px;
+  color: var(--green-dark);
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 800;
+  gap: 8px;
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+.status-pill span {
+  background: #30a56c;
+  border-radius: 999px;
+  display: block;
+  height: 9px;
+  width: 9px;
+}
+
+.assistant-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.chat-panel,
+.deal-panel,
+.price-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.chat-panel {
+  display: grid;
+  grid-template-rows: auto auto minmax(360px, 1fr) auto;
+  min-height: 670px;
+  overflow: hidden;
+}
+
+.chat-header {
+  border-bottom: 1px solid var(--line);
+  padding: 22px;
+}
+
+.chat-header p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.ghost-button {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 800;
+  padding: 10px 14px;
+}
+
+.quick-prompts {
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 14px 18px;
+}
+
+.quick-prompts button {
+  background: #f2f5ef;
+  border: 1px solid #d7ded4;
+  border-radius: 999px;
+  color: #26342d;
+  flex: 0 0 auto;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 9px 12px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  padding: 22px;
+}
+
+.message {
+  border-radius: 8px;
+  line-height: 1.5;
+  max-width: 86%;
+  padding: 15px 16px;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: #f2f4ef;
+  border: 1px solid #dce4da;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: var(--green);
+  color: white;
+}
+
+.message strong {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.message ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.composer {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 18px;
+}
+
+.composer textarea {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-height: 76px;
+  padding: 13px;
+  resize: vertical;
+}
+
+.composer button,
+.lead-form button,
+.price-card button {
+  background: var(--green);
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  font-weight: 900;
+  padding: 0 20px;
+}
+
+.deal-panel {
+  overflow: hidden;
+}
+
+.deal-panel img {
+  aspect-ratio: 16 / 10;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.insight-row,
+.deal-note,
+.metric-grid {
+  padding: 18px;
+}
+
+.insight-row {
+  border-bottom: 1px solid var(--line);
+}
+
+.insight-row span,
+.metric-grid span,
+.metric-grid small,
+.price-card span,
+.lead-form label {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.insight-row strong,
+.metric-grid strong {
+  display: block;
+  margin-top: 4px;
+}
+
+.metric-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.metric-grid div {
+  background: #f6f5ef;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.metric-grid strong {
+  color: var(--green-dark);
+  font-size: 1.55rem;
+}
+
+.deal-note {
+  border-top: 1px solid var(--line);
+}
+
+.deal-note p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.knowledge-band,
+.pricing-band,
+.lead-band {
+  padding: 42px clamp(18px, 4vw, 54px);
+}
+
+.knowledge-band {
+  background: #eef1ea;
+}
+
+.section-heading {
+  margin-bottom: 18px;
+  max-width: 740px;
+}
+
+.domain-grid,
+.pricing-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.domain-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.domain-card {
+  background: transparent;
+  border: 1px solid #d5ddd1;
+  border-radius: 8px;
+  min-height: 150px;
+  padding: 18px;
+}
+
+.domain-card b {
+  color: var(--blue);
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.domain-card p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.pricing-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.price-card {
+  box-shadow: none;
+  min-height: 285px;
+  padding: 20px;
+}
+
+.price-card.featured {
+  border-color: rgba(37, 107, 80, 0.55);
+  box-shadow: 0 18px 45px rgba(37, 107, 80, 0.14);
+}
+
+.price-card.enterprise {
+  border-top: 5px solid var(--amber);
+}
+
+.price-card h3 {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.price-card p {
+  color: var(--muted);
+  min-height: 96px;
+}
+
+.price-card button {
+  min-height: 44px;
+  width: 100%;
+}
+
+.lead-band {
+  background: var(--green-dark);
+  color: white;
+}
+
+.lead-band .eyebrow,
+.lead-band label {
+  color: #b9dac9;
+}
+
+.lead-band h2 {
+  margin-bottom: 0;
+}
+
+.lead-form {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(150px, 1fr) minmax(190px, 1.2fr) minmax(150px, 0.8fr) auto;
+  width: min(780px, 100%);
+}
+
+.lead-form label {
+  display: grid;
+  gap: 6px;
+}
+
+.lead-form input,
+.lead-form select {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+}
+
+.lead-form button {
+  background: var(--amber);
+  min-height: 44px;
+  padding: 0 18px;
+}
+
+.toast {
+  background: #17211d;
+  border-radius: 8px;
+  bottom: 20px;
+  box-shadow: var(--shadow);
+  color: white;
+  left: 50%;
+  opacity: 0;
+  padding: 13px 16px;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, 16px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 3;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.sr-only {
+  height: 1px;
+  left: -9999px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+@media (max-width: 1080px) {
+  .assistant-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chat-panel {
+    grid-column: 1 / -1;
+  }
+
+  .domain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lead-band {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .lead-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .assistant-grid,
+  .domain-grid,
+  .pricing-grid,
+  .lead-form {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-panel {
+    min-height: 620px;
+  }
+
+  .chat-header,
+  .composer {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .composer button {
+    min-height: 46px;
+  }
+
+  .message {
+    max-width: 100%;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
